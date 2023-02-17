@@ -1,23 +1,24 @@
 <?php
 
+use App\Models\User;
+use App\Models\Community;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\CommunityController;
+use App\Http\Controllers\Api\CommentaryController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/tokens/create', function (Request $request) {
+    $token = $request->user()->createToken($request->token_name);
+    return ['token' => $token->plainTextToken];
 });
 
-Route::apiResource('/post',Post::class)
-    ->only(['index','show','destroy']);
+Route::middleware('auth')->group(function () {
+
+Route::apiResource("communities",CommunityController::class);
+Route::apiResource("posts",PostController::class);
+Route::apiResource("commentaries",CommentaryController::class);
+});
+
+
 

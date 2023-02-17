@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Comentary;
+use App\Models\Commentary;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +13,7 @@ class PostController extends Controller
         $posts = Post::get();
 
 
-        $comments = Comentary::get();
+        $comments = Commentary::get();
         return (view('posts', ['posts' => $posts],['comments'=>$comments]));
     }
 

@@ -15,8 +15,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->string(10),
+            'title' => fake()->text(10),
             'body' => fake()->text(),
+            'user_id'=>random_int(1,2),
+            'community_id'=>random_int(1,1)
         ];
     }
 

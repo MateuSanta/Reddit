@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('communities', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('title');
+            $table->string('body');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->softDeletes();
         });
     }
 

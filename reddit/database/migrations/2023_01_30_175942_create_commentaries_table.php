@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comentaries', function (Blueprint $table) {
+        Schema::create('commentaries', function (Blueprint $table) {
             $table->id();
             $table->string('body')->required();
             $table->timestamp('created_at');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comentaries');
+        Schema::dropIfExists('commentaries');
     }
 };

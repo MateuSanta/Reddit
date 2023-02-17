@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('community_id')->constrained()->cascadeOnDelete();
         });
     }
 
