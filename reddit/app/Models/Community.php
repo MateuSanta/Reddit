@@ -15,11 +15,11 @@ class Community extends Model
         'title',
         'body'
     ];
-    public function post()
+    public function posts()
     {
         return $this->hasMany(Post::class);
     }
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }

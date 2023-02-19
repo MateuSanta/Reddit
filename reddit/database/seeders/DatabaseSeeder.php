@@ -25,13 +25,19 @@ class DatabaseSeeder extends Seeder
 /*         Post::factory(1)->create(); */
 /*         Commentary::factory(1)->create(); */
 
-/* Community:Factory(4)
-        ->has()
+$admin=User::factory()->create([
+    'name'=> 'mateu',
+    'email'=>'mateu@123.com',
+    'password'=> 'hola'
+]);
+
+ Community::factory(4)
+        ->has(Post::factory())
         ->hasAttached($admin)
-        ->Create(); */
+        ->create();
 
-
-/*         \App\Models\Commentary::factory(20)->create();
+/*
+         \App\Models\Commentary::factory(20)->create();
         \App\Models\Community::factory(20)->create(); */
 
         // \App\Models\User::factory()->create([

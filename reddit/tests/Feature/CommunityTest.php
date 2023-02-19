@@ -133,4 +133,14 @@ class CommunityTest extends TestCase
 
     }
 
+    public function test_can_returns_a_json_api_error_object_when_a_community_is_not_found(){
+
+        Sanctum::actingAs(
+            User::factory()->create(),['*']
+        );
+        $response = $this->getJson(route('communities.show', 999));
+
+        $response->assertJsonStructure();
+    }
+
 }

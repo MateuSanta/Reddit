@@ -46,6 +46,7 @@ class CommunityController extends Controller
      */
     public function show(Community $community)
     {
+        if (!($community->id)) return response()->json(['error' => 'Community not found'], 404);
         return new CommunityResource($community);
     }
 
