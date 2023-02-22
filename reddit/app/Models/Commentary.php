@@ -17,4 +17,5 @@ class Commentary extends Model
     {
         return $this->belongsTo(Post::class, 'foreign_key');
     }
+
 }

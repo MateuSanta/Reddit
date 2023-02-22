@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Community;
 use App\Models\Commentary;
+use Egulias\EmailValidator\Parser\Comment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,7 +33,8 @@ $admin=User::factory()->create([
 ]);
 
  Community::factory(4)
-        ->has(Post::factory())
+        ->has(Post::factory()->has(Commentary::factory()))
+
         ->hasAttached($admin)
         ->create();
 

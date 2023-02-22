@@ -18,9 +18,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'foreign_key');
     }
-    public function comentary()
+    public function commentary()
     {
-        return $this->hasMany(Comentary::class);
+        return $this->hasMany(Commentary::class);
     }
     public function community()
     {
